@@ -1,54 +1,95 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
-<!-- pug: https://pugjs.org/ -->
-<!-- haml: http://haml.info/ -->
-<!-- hbs(handlebars): http://handlebarsjs.com/ -->
-
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to Glitch!</title>
-    <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-teleport-controls@0.2.x/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.x/dist/aframe-controller-cursor-component.min.js"></script>
+    <script src="../js/random-texture.js"></script>
+    <script src="./test.js"></script>
+    <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/aincraft/components/snap.js"></script>
+    <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/aincraft/components/intersection-spawn.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
+
+
+    <script>
+      AFRAME.registerComponent('focus', {
+
+        init: function () {
+          var el = this.el;  // <a-box>
+          el.addEventListener('mousedown', function(evt) {
+            console.log(evt.detail.intersection);
+          });
+
+        }
+      });
+
+    </script>
   </head>
-  <body>
-    <header>
-      <h1>
-        A Dream of the Future
-      </h1>
-    </header>
 
-    <main>
-      <p class="bold">Oh hi,</p>
-      <p>Tell me your hopes and dreams:</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="Dreams!">
-        <button type="submit">Submit</button>
-      </form>
-      <section class="dreams">
-        <ul id="dreams">
-        </ul>
-      </section>
-    </main>
 
-    <footer>
-      <a href="https://glitch.com">
-        Remix this in Glitch
-      </a>
-    </footer>
+<body>
+  <a-scene  sound="src: url(https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914); autoplay: false">
+    
+    <a-assets>
+      <img id="groundTexture" src="https://cdn.glitch.com/4cab6208-5a2b-49c5-9be1-0e436b6f3c15%2F11635-v7.jpg?1519771249182">
+      <img id="skyTexture" src="https://cdn.glitch.com/4cab6208-5a2b-49c5-9be1-0e436b6f3c15%2Fminecraft_background___grass___by_jabjabjab-d30egxg.png?1519771250297">
+      <img id="log" src="https://cdn.glitch.com/4cab6208-5a2b-49c5-9be1-0e436b6f3c15%2Fil_570xN.839219362_k7kz.jpg?1519771242272">
+      <img id="leaves" src="https://cdn.glitch.com/4cab6208-5a2b-49c5-9be1-0e436b6f3c15%2F65040929317ccf2d9afd4fae4b59df42.png?1519771242025">
+      <a-mixin id="voxel"
+         geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
+         material="shader: standard"
+         random-texture
+         
+         snap="offset: 0.3 0.3 0.3; snap: 0.5 0.5 0.5"
+      ></a-mixin>
+    </a-assets>
 
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/client.js"></script>
+    
+    
+    <a-cylinder focus id="ground" material="src:#groundTexture; repeat: 100 100" radius="90" height="0.1"></a-cylinder>
 
-  </body>
+    <a-sky id="background" src="#skyTexture" ></a-sky>
+
+    <!-- Hands. -->
+    <a-entity id="teleHand" hand-controls="left" teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
+    <a-entity id="blockHand" hand-controls="right" controller-cursor intersection-spawn="event: click; mixin: voxel"></a-entity>
+
+    <!-- Right Trees -->
+    <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 0.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 0.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 1.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 1.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 2.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 2.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-1.5 3.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-1.5 2.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2.5 2.8 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-1 2.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-1.5 2.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2.5 3.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2.5 2.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2.5 2.8 -6.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-3 2.8 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2.5 2.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
+    
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 3.3 -6.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.8 -6.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-1.5 2.8 -6.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.8 -7" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.3 -6.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 3.3 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.8 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-1.5 2.8 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.8 -5" geometry="height:0.5;depth:0.5" static-body></a-box>
+    <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.3 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
+
+    
+    <!-- Camera. -->
+    <a-camera camera look-controls>
+      <a-cursor test intersection-spawn="event: click; mixin: voxel"></a-cursor>
+    </a-camera>
+  </a-scene>
+</body>
 </html>
