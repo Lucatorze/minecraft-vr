@@ -10,7 +10,7 @@ AFRAME.registerComponent('walk', {
         timer = setTimeout(function(){
             console.log('okok')
             cursor.removeAttribute('intersection-spawn');
-            cursor.removeEventListener("click",this.doStuff);
+            console.log(cursor)
         }, 1000);
     })
     el.addEventListener('mouseleave', function () {

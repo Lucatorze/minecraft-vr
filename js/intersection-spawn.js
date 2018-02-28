@@ -7,9 +7,17 @@ AFRAME.registerComponent('intersection-spawn', {
   init: function () {
     const data = this.data;
     const el = this.el;
-
+    var sceneEl = document.querySelector('a-scene');
+    var cursor = sceneEl.querySelector('a-cursor')
+    var verif = cursor.getAttribute('intersection-spawn')
+    
+  
     el.addEventListener(data.event, evt => {
-      
+      if(verif != null){
+      console.log(verif)
+    }else{
+      console.log('nullllllll')
+    }
       // Create element.
       const spawnEl = document.createElement('a-entity');
     
