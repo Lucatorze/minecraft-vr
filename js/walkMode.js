@@ -1,13 +1,13 @@
-AFRAME.registerComponent('random-texture', {
+AFRAME.registerComponent('walk', {
   dependencies: ['material'],
 
   init: function () {
     var el = this.el;  // <a-box>
-    el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
     var timer;
+    console.log('walkkkkk')
     el.addEventListener('mouseenter', function () {
         timer = setTimeout(function(){
-            el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
+            console.log('walkkkkk')
         }, 1000);
     })
     el.addEventListener('mouseleave', function () {
