@@ -3,7 +3,7 @@
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-teleport-controls@0.2.x/dist/aframe-teleport-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.x/dist/aframe-controller-cursor-component.min.js"></script>
-    <script src="../js/random-texture.js"></script>
+    <script src="./js/random-texture.js"></script>
     <script src="./test.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/aincraft/components/snap.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/aincraft/components/intersection-spawn.js"></script>
@@ -27,7 +27,7 @@
 
 
 <body>
-  <a-scene  sound="src: url(https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914); autoplay: false">
+  <a-scene fog="type: linear; color: #90b7ee; far: 220; near: 0;">
     
     <a-assets>
       <img id="groundTexture" src="https://cdn.glitch.com/4cab6208-5a2b-49c5-9be1-0e436b6f3c15%2F11635-v7.jpg?1519771249182">
@@ -42,12 +42,41 @@
          snap="offset: 0.3 0.3 0.3; snap: 0.5 0.5 0.5"
       ></a-mixin>
     </a-assets>
-
     
+    <a-entity geometry=" primitive: plane; height: 5; width: 5" position="100 55 -100" material="shader: standard; transparent: true; side: double; true; src: url(https://cdn.glitch.com/4cab6208-5a2b-49c5-9be1-0e436b6f3c15%2Fsun.png?1519804557866)">
+     <a-animation attribute="position" from="20 20 -40" to="20 20 220" easing="linear" begin="200" dur="2000000"></a-animation>
+    </a-entity>
+
+    <!-- Clouds -->
+    <a-entity geometry="primitive: box; depth: 3; height: 1; width: 2" position="-25 20 10" material="shader: standard; opacity: 0.8; color: #fff">
+      <a-animation attribute="position" from="-25 20 10" to="20 10 230" easing="linear" begin="200" dur="1000000"></a-animation>
+    </a-entity>
+
+    <a-entity geometry="primitive: box; depth: 5; height: 1; width: 2" position="-40 20 -30" material="shader: standard; opacity: 0.8; color: #fff">
+      <a-animation attribute="position" from="-40 20 -30" to="-40 10 210" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>
+
+    <a-entity geometry="primitive: box; depth: 3; height: 1; width: 2" position="-10 20 -50" material="shader: standard; opacity: 0.8; color: #fff"> 
+     <a-animation attribute="position" from="-10 20 -50" to="-10 10 190" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>
+
+    <a-entity geometry="primitive: box; depth: 5; height: 1; width: 2" position="-20 20 -35" material="shader: standard; opacity: 0.8; color: #fff"> 
+     <a-animation attribute="position" from="-20 20 -35" to="-20 10 205" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>
+
+    <a-entity geometry="primitive: box; depth: 5; height: 1; width: 2" position="-10 20 -20" material="shader: standard; opacity: 0.8; color: #fff"> 
+     <a-animation attribute="position" from="-10 20 -20" to="-10 10 220" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>
+
+    <a-entity geometry="primitive: box; depth: 3; height: 1; width: 2" position="-12 20 -20" material="shader: standard; opacity: 0.8; color: #fff"> 
+     <a-animation attribute="position" from="-12 20 -20" to="-12 10 220" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>
+
+    <a-entity geometry="primitive: box; depth: 5; height: 1; width: 2" position="0 20 -10" material="shader: standard; opacity: 0.8; color: #fff"> 
+     <a-animation attribute="position" from="0 20 -10" to="0 10 230" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>
+
+    <a-entity geometry="primitive: box; depth: 2; height: 1; width: 2" position="-28 20 -10" material="shader: standard; opacity: 0.8; color: #fff"> 
+     <a-animation attribute="position" from="-28 20 -10" to="-28 10 240" easing="linear" begin="200" dur="1000000"></a-animation></a-entity>       
     
     <a-cylinder focus id="ground" material="src:#groundTexture; repeat: 100 100" radius="90" height="0.1"></a-cylinder>
 
-    <a-sky id="background" src="#skyTexture" ></a-sky>
+    <a-sky color="#a9c8e3"></a-sky>
+
 
     <!-- Hands. -->
     <a-entity id="teleHand" hand-controls="left" teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
@@ -87,9 +116,12 @@
 
     
     <!-- Camera. -->
-    <a-camera camera look-controls>
+     <a-entity camera position="0 1 4" look-controls="enabled: true" cursor-visible="enabled: true" wasd-controls="enabled: true" sound="src: https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914; autoplay: true">
+    
+    </a-entity>
+    <!--<a-camera camera look-controls>
       <a-cursor test intersection-spawn="event: click; mixin: voxel"></a-cursor>
-    </a-camera>
+    </a-camera>-->
   </a-scene>
 </body>
 </html>
