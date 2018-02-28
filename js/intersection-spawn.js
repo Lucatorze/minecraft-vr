@@ -13,12 +13,14 @@ AFRAME.registerComponent('intersection-spawn', {
   remove:function(){
     const data = this.data;
     const el = this.el;
-    console.log('removed')
+    
+    
     el.removeEventListener(data.event, this.callback);
   }
 });
   
 function blocCreater (data,el,evt){
+  console.log('lala : ' + el)
   var sceneEl = document.querySelector('a-scene');
   // Create element.
   const spawnEl = document.createElement('a-entity');
