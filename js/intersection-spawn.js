@@ -14,7 +14,6 @@ AFRAME.registerComponent('intersection-spawn', {
     const data = this.data;
     const el = this.el;
     
-    
     el.removeEventListener(data.event, this.callback);
   }
 });
