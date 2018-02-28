@@ -11,6 +11,7 @@
     <script src="snap.js"></script>
     <script src="intersection-spawn.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.rawgit.com/jujunjun110/aframe-crawling-cursor/master/dist/aframe-crawling-cursor.min.js"></script> 
 
 
     <script>
@@ -108,10 +109,12 @@
 
     <!--intersection-spawn="event: click; mixin: voxel"-->
     <!-- Camera. -->    
+    <a-cursor intersection-spawn="event: click; mixin: voxel"></a-cursor>
     <a-camera camera
           sound="src: https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914; autoplay: true"
-              wasd-controls="enabled:false">
-      <a-cursor intersection-spawn="event: click; mixin: voxel"></a-cursor>
+              wasd-controls="enabled:false"
+              raycaster crawling-cursor>
+      
     </a-camera>
   </a-scene>
 </body>

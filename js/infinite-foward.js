@@ -5,6 +5,10 @@ AFRAME.registerComponent('inifite-foward', {
 
   tick: function () {
     var currentPos= this.el.getAttribute('position');
+    var sceneEl = document.querySelector('a-scene');
+    var cursor = sceneEl.querySelector('a-cursor');
+    var camera = sceneEl.querySelector('a-camera');
+    console.log(cursor.getAttribute());
     this.el.setAttribute('position', {
       x: currentPos.x,
       y: currentPos.y,
