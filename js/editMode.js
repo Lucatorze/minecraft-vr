@@ -1,4 +1,4 @@
-AFRAME.registerComponent('walk', {
+AFRAME.registerComponent('edit', {
   dependencies: ['material'],
 
   init: function () {
@@ -8,8 +8,11 @@ AFRAME.registerComponent('walk', {
     var timer;
     el.addEventListener('mouseenter', function () {
         timer = setTimeout(function(){
-            console.log('walk mod')
-            cursor.removeAttribute('intersection-spawn');
+            console.log('Edit mod')
+            cursor.setAttribute('intersection-spawn', {
+              event: 'click',
+              mixin: 'voxel',
+            });
         }, 1000);
     })
     el.addEventListener('mouseleave', function () {
