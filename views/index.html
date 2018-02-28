@@ -3,8 +3,8 @@
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-teleport-controls@0.2.x/dist/aframe-teleport-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.x/dist/aframe-controller-cursor-component.min.js"></script>
-    <script src="./js/random-texture.js"></script>
-    <script src="./test.js"></script>
+    <script src="random-texture.js"></script>
+    <script src="test.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/aincraft/components/snap.js"></script>
     <script src="https://rawgit.com/ngokevin/kframe/csstricks/scenes/aincraft/components/intersection-spawn.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
@@ -115,9 +115,17 @@
     <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.3 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
 
     
-    <!-- Camera. -->
-     <a-entity camera position="0 1 4" look-controls="enabled: true" cursor-visible="enabled: true" wasd-controls="enabled: true" sound="src: https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914; autoplay: true">
-    
+    <!-- Camera. -->    
+    <a-entity camera 
+              position="0 1 4"
+              look-controls="enabled: true"
+              wasd-controls="enabled: true" 
+              sound="src: https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914; autoplay: true">
+      <a-entity position="0 0 -1"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                material="color: black; shader: flat"
+                intersection-spawn="event: click; mixin: voxel">
+      </a-entity>
     </a-entity>
     <!--<a-camera camera look-controls>
       <a-cursor test intersection-spawn="event: click; mixin: voxel"></a-cursor>
