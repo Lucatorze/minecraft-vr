@@ -9,28 +9,28 @@ AFRAME.registerComponent('inifite-foward', {
     var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('a-camera');
     var camRotation = camera.getAttribute('rotation');
-    var new_x = 0;
-    var new_z = 0;
-    console.log(camRotation)
+    var radian = (camRotation.y) * (Math.PI / 180);
+    console.log(camRotation.y)
     this.el.setAttribute('position', {
-      x: new_x + (0.1 * Math.sin(radian)),
+      x: currentPos.x + (0.1 * Math.cos(radian)),
       y: currentPos.y,
-      z: (new_z + (0.1 * Math.cos(camRotation.y)))
+      z: currentPos.z + (0.1 * Math.cos(radian))
     })
   }
 });
 
     var new_x = 0;
     var new_z = 0;
+    var camPosition = document.querySelector('a-scene').querySelector('a-camera').getAttribute('position');
+    var camRotation = document.querySelector('a-scene').querySelector('a-camera').getAttribute('rotation');
+
     function move_camera_forward() {
-        x = $("#cam").attr("position").x;
-        y = $("#cam").attr("position").y;
-        z = $("#cam").attr("position").z;
-        radian = -($("#cam").attr("rotation").y) * (Math.PI / 180);
+        var x = camPosition.x;
+        var y = camPosition.y;
+        var z = camPosition.z;
+        var radian = -(camRotation.y) * (Math.PI / 180);
         new_z = (new_z + (0.1 * Math.cos(radian)));
         new_x = new_x + (0.1 * Math.sin(radian));
-        new_pos = new_x + " " + y + " " + (-new_z);
-        console.log(new_pos)
-        $("#cam").attr("position", new_pos)
-
+        var new_pos = new_x + " " + y + " " + (-new_z);
+        return new_pos
     }
