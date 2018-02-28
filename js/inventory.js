@@ -4,10 +4,10 @@ AFRAME.registerComponent('inventory', {
   },
 
   tick: function () {
-    var currentPos= this.el.getAttribute('position');
     var sceneEl = document.querySelector('a-scene');
     var camera = sceneEl.querySelector('a-camera');
     var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
+    var currentPos= camera.getAttribute('position');
 
     this.el.setAttribute('position', {
       x: currentPos.x + -(0.05 *cameraDirection.x),
