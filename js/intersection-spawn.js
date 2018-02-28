@@ -7,18 +7,18 @@ AFRAME.registerComponent('intersection-spawn', {
   init: function () {
     const data = this.data;
     const el = this.el;
-    
-    el.addEventListener(data.event, callback.bind(this, data, el));
+    this.callback = blocCreater.bind(this, data, el)
+    el.addEventListener(data.event, this.callback);
   },
-    remove:function(){
-      const data = this.data;
-      const el = this.el;
-      console.log('removed')
-      el.removeEventListener(data.event, callback.bind(this, data, el));
+  remove:function(){
+    const data = this.data;
+    const el = this.el;
+    console.log('removed')
+    el.removeEventListener(data.event, this.callback);
   }
 });
   
-function callback (data,el,evt){
+function blocCreater (data,el,evt){
   var sceneEl = document.querySelector('a-scene');
   // Create element.
   const spawnEl = document.createElement('a-entity');
