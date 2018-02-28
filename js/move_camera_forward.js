@@ -11,9 +11,9 @@ AFRAME.registerComponent('move_camera_forward', {
     var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
 
     this.el.setAttribute('position', {
-      x: currentPos.x + cameraDirection.x,
+      x: currentPos.x + -(0.05 *cameraDirection.x),
       y: currentPos.y,
-      z: (currentPos.z + cameraDirection.z) + this.speed
+      z: currentPos.z + -(0.05 *cameraDirection.z)
     })
   }
 });
