@@ -11,7 +11,9 @@ AFRAME.registerComponent('walk', {
         timer = setTimeout(function(){
             console.log('walk mod')
             cursor.removeAttribute('intersection-spawn');
-            camera.setAttribute('inifite-foward');
+            camera.removeAttribute('wasd-controls');
+            camera.setAttribute('inifite-foward','');
+            console.log(camera)
         }, 1000);
     })
     el.addEventListener('mouseleave', function () {

@@ -5,7 +5,7 @@ AFRAME.registerComponent('edit', {
     var el = this.el;  // <a-box>
     var sceneEl = document.querySelector('a-scene');
     var cursor = sceneEl.querySelector('a-cursor');
-    var camera = sceneEl.querySelector('a-camera');
+    var camera = sceneEl.querySelector('[camera]');
     var timer;
     el.addEventListener('mouseenter', function () {
         timer = setTimeout(function(){
