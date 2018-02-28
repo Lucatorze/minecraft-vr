@@ -7,8 +7,9 @@ AFRAME.registerComponent('inventory', {
     var sceneEl = document.querySelector('a-scene');
     var camera = sceneEl.querySelector('a-camera');
     var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
-    var currentPos= camera.getAttribute('position');
-
+    var currentPos = camera.getAttribute('position');
+    var rotation = this.el.getAttribute('rotation');
+console.log(rotation)
     this.el.setAttribute('position', {
       x: this.el.getAttribute('position').x -(0.05 *cameraDirection.x),
       y: this.el.getAttribute('position').y,
