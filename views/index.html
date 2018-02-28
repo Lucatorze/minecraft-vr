@@ -70,8 +70,6 @@
     <a-text position="4 29 25" geometry="primitive:plane" value="Walk Mod" text="color:#ff0000;height:50;width:50" rotation="90 0 0" walk></a-text>
 
     <!-- Hands. -->
-    <a-entity id="teleHand" hand-controls="left" teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
-    <a-entity id="blockHand" hand-controls="right" controller-cursor intersection-spawn="event: click; mixin: voxel"></a-entity>
 
     <!-- Right Trees -->
     <a-box material="src:#log" depth="2" height="4" width="0.5" position="-2 0.3 -6" geometry="height:0.5;depth:0.5" static-body></a-box>
@@ -105,7 +103,7 @@
     <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.8 -5" geometry="height:0.5;depth:0.5" static-body></a-box>
     <a-box material="src:#leaves" depth="2" height="4" width="0.5" position="-2 2.3 -5.5" geometry="height:0.5;depth:0.5" static-body></a-box>
 
-    
+    <!--intersection-spawn="event: click; mixin: voxel"-->
     <!-- Camera. -->    
     <a-camera camera
               look-controls

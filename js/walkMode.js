@@ -3,11 +3,14 @@ AFRAME.registerComponent('walk', {
 
   init: function () {
     var el = this.el;  // <a-box>
+    var sceneEl = document.querySelector('a-scene');
+    var cursor = sceneEl.querySelector('a-cursor')
     var timer;
-    console.log('walkkkkk')
     el.addEventListener('mouseenter', function () {
         timer = setTimeout(function(){
-            console.log('walkkkkk')
+            console.log('okok')
+            cursor.removeAttribute('intersection-spawn');
+            cursor.removeEventListener("click",this.doStuff);
         }, 1000);
     })
     el.addEventListener('mouseleave', function () {
