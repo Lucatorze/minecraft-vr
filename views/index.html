@@ -64,7 +64,9 @@
     <a-cylinder focus id="ground" material="src:#groundTexture; repeat: 100 100" radius="90" height="0.1"></a-cylinder>
 
     <a-sky color="#a9c8e3"></a-sky>
-
+    
+    <a-box color="#6E6E6E" depth="9" height="0.5" width="20" position="10 30 20" geometry="height:0.5;depth:20" static-body></a-box>
+    <a-text position="10 29 20" geometry="primitive:plane" value="Hello, World!"></a-text>
 
     <!-- Hands. -->
     <a-entity id="teleHand" hand-controls="left" teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
