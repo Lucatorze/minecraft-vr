@@ -20,7 +20,7 @@ AFRAME.registerComponent('intersection-spawn', {
 });
   
 function blocCreater (data,el,evt){
-  console.log('lala : ' + el.id)
+  console.log(el)
   var sceneEl = document.querySelector('a-scene');
   // Create element.
   const spawnEl = document.createElement('a-entity');
