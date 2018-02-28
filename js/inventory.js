@@ -10,9 +10,9 @@ AFRAME.registerComponent('inventory', {
     var currentPos= camera.getAttribute('position');
 
     this.el.setAttribute('position', {
-      x: currentPos.x + -(0.05 *cameraDirection.x),
-      y: currentPos.y + -(0.05 *cameraDirection.y),
-      z: (currentPos.z + 1.1) + -(0.05 *cameraDirection.z)
+      x: this.el.getAttribute('position').x -(0.05 *cameraDirection.x),
+      y: this.el.getAttribute('position').y,
+      z: this.el.getAttribute('position').z -(0.05 *cameraDirection.z)
     })
   }
 });
