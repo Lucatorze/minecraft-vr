@@ -6,7 +6,6 @@ AFRAME.registerComponent('move_camera_forward', {
   tick: function () {
     var currentPos= this.el.getAttribute('position');
     var sceneEl = document.querySelector('a-scene');
-    var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('a-camera');
     var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
 
