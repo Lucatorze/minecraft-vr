@@ -6,18 +6,11 @@ AFRAME.registerComponent('walk', {
     var sceneEl = document.querySelector('a-scene');
     var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('a-camera');
-    var timer;
     el.addEventListener('mouseenter', function () {
-        timer = setTimeout(function(){
-            console.log('walk mod')
-            cursor.removeAttribute('intersection-spawn');
-            camera.removeAttribute('wasd-controls');
-            camera.setAttribute('inifite-foward','');
-            console.log(camera)
-        }, 1000);
+        console.log('Walk mod')
+        cursor.removeAttribute('intersection-spawn');
+        camera.removeAttribute('wasd-controls');
+        camera.setAttribute('move_camera_forward','');
     })
-    el.addEventListener('mouseleave', function () {
-        clearTimeout(timer);
-    });
   }
 });
