@@ -18,6 +18,7 @@ AFRAME.registerComponent('edit', {
               mixin: 'voxel',
             });
           camera.removeAttribute('move_camera_forward');
+          camera.removeAttribute('fly_forward');
           menu.removeAttribute('inventory');
           walk.removeAttribute('inventory');
           edit.removeAttribute('inventory');

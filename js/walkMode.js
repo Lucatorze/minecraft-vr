@@ -15,6 +15,7 @@ AFRAME.registerComponent('walk', {
         console.log('Walk mod')
         cursor.removeAttribute('intersection-spawn');
         camera.removeAttribute('wasd-controls');
+      camera.removeAttribute('fly_forward');
         camera.setAttribute('move_camera_forward','');
         menu.setAttribute('inventory','');
         walk.setAttribute('inventory','');
