@@ -18,13 +18,6 @@ AFRAME.registerComponent('inventory', {
       z: this.el.getAttribute('position').z -(0.05 *cameraDirection.z)
     })
     
-    var startPos = new THREE.Vector3(1.2, -2.34, 0.5);
-    var direction = new THREE.Vector3(0.6578737359955765, -0.24972916834682138, 0.710519166466616);
-    var distance = 1;
-
-    var newPos = new THREE.Vector3();
-    newPos.addVectors ( startPos, direction.multiplyScalar( distance ) );
-
-  
+    
   }
 });
