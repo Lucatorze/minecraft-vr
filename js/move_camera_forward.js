@@ -27,10 +27,18 @@ AFRAME.registerComponent('fly_forward', {
     var sceneEl = document.querySelector('a-scene');
     var camera = sceneEl.querySelector('a-camera');
     var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
-
+    
+    var y = currentPos.y + -(0.05 *cameraDirection.y)
+    
+    if(y >= 20){
+      y-=1
+    }else if(y<= 0){
+      y+= 1
+    }
+  
     this.el.setAttribute('position', {
       x: currentPos.x + -(0.05 *cameraDirection.x),
-      y: currentPos.y + -(0.05 *cameraDirection.y),
+      y: y,
       z: currentPos.z + -(0.05 *cameraDirection.z)
     })
   }
