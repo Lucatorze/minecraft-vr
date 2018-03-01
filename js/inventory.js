@@ -18,6 +18,5 @@ AFRAME.registerComponent('inventory', {
       z: this.el.getAttribute('position').z -(0.05 *cameraDirection.z)
     })
     
-    
   }
 });
