@@ -15,7 +15,7 @@ AFRAME.registerComponent('fly', {
           console.log('Fly mod')
           camera.removeAttribute('intersection-spawn');
           camera.removeAttribute('wasd-controls');
-          camera.setAttribute('move_camera_forward','');
+          camera.removeAttribute('move_camera_forward');
           camera.setAttribute('fly_forward','');
           menu.setAttribute('inventory','');
           walk.setAttribute('inventory','');
