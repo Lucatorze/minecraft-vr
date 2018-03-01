@@ -9,6 +9,7 @@ AFRAME.registerComponent('inventory', {
     var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
     var currentPos = camera.getAttribute('position');
     var rotation = camera.getAttribute('rotation');
+    var 3DMenu = document.getElementById('rover').object3D;
 
     this.el.setAttribute('position', {
       x: this.el.getAttribute('position').x -(0.05 *cameraDirection.x),
