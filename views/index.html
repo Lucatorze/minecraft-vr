@@ -6,27 +6,13 @@
     <script src="random-texture.js"></script>
     <script src="walkMode.js"></script>
     <script src="editMode.js"></script>
+    <script src="flyMode.js"></script>
     <script src="inventory.js"></script>
     <script src="move_camera_forward.js"></script>
     <script src="test.js"></script>
     <script src="snap.js"></script>
     <script src="intersection-spawn.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
-
-
-    <script>
-      AFRAME.registerComponent('focus', {
-
-        init: function () {
-          var el = this.el;  // <a-box>
-          el.addEventListener('mousedown', function(evt) {
-            console.log(evt.detail.intersection);
-          });
-
-        }
-      });
-
-    </script>
   </head>
 
 
@@ -72,7 +58,8 @@
     
     <a-box  id="menu" color="#6E6E6E" depth="9" height="0.5" width="20" position="2.447 30 -23.353" geometry="depth:20" static-body="sphereRadius:NaN" rotation="-20 0 0" velocity=""></a-box>
     <a-text id="walk" position="-4 30 -16" geometry="primitive:plane" value="Walk Mod" text="color:#ff0000;height:50;width:50" rotation="70 0 0" walk></a-text>
-    <a-text id="edit" position="-4 30 -20" geometry="primitive:plane" value="Edit Mod" text="color:#ff0000;height:50;width:50" rotation="70 0 0" edit></a-text>
+    <a-text id="fly" position="-4 30 -20" geometry="primitive:plane" value="fly Mod" text="color:#ff0000;height:50;width:50" rotation="70 0 0" fly></a-text>
+    <a-text id="edit" position="-4 26 -22" geometry="primitive:plane" value="Edit Mod" text="color:#ff0000;height:50;width:50" rotation="70 0 0" edit></a-text>
     
     <!-- Hands. -->
 

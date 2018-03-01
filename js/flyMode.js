@@ -12,13 +12,15 @@ AFRAME.registerComponent('fly', {
     var fly = sceneEl.querySelector('#fly');
     
     el.addEventListener('mouseenter', function () {
-            console.log('Fly mod')
-            
-          camera.removeAttribute('move_camera_forward');
+          console.log('Fly mod')
           camera.removeAttribute('intersection-spawn');
-          menu.removeAttribute('inventory');
-          walk.removeAttribute('inventory');
-          edit.removeAttribute('inventory');
+          camera.removeAttribute('wasd-controls');
+          camera.setAttribute('move_camera_forward','');
+          camera.setAttribute('fly_forward','');
+          menu.setAttribute('inventory','');
+          walk.setAttribute('inventory','');
+          edit.setAttribute('inventory','');
+          fly.setAttribute('inventory','');
     })
   }
 });

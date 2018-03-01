@@ -9,15 +9,17 @@ AFRAME.registerComponent('walk', {
     var menu = sceneEl.querySelector('#menu');
     var walk = sceneEl.querySelector('#walk');
     var edit = sceneEl.querySelector('#edit');
-    
+    var fly = sceneEl.querySelector('#fly');
+
     el.addEventListener('mouseenter', function () {
         console.log('Walk mod')
         cursor.removeAttribute('intersection-spawn');
         camera.removeAttribute('wasd-controls');
         camera.setAttribute('move_camera_forward','');
         menu.setAttribute('inventory','');
-      walk.setAttribute('inventory','');
-      edit.setAttribute('inventory','');
+        walk.setAttribute('inventory','');
+        edit.setAttribute('inventory','');
+        fly.setAttribute('inventory','');
     })
   }
 });
