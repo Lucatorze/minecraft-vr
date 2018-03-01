@@ -2,6 +2,21 @@ AFRAME.registerComponent('inventory', {
   schema: {
     speed: {type: 'float', default :0.05},
   },
+  
+  init: function () {
+    var sceneEl = document.querySelector('a-scene');
+    var camera = sceneEl.querySelector('a-camera');
+    var currentPos = camera.getAttribute('position');
+    var pos = this.el.getAttribute('position')
+    
+    this.dx = pos.x - currentPos.x 
+    this.dy = pos.y - currentPos.y
+    this.dz = pos.z - currentPos.z
+    
+    console.log(this.el)
+    console.log(this.dx + ' ' + this.dy + ' ' + this.dz)
+
+  },
 
   tick: function () {
     var sceneEl = document.querySelector('a-scene');
@@ -13,19 +28,10 @@ AFRAME.registerComponent('inventory', {
     var pos = this.el.getAttribute('position')
     var menu = this.el.object3D;
     
-    var dx = currentPos.x - (pos.x)
-    var dy = currentPos.y - (pos.y)
-    var dz = currentPos.z - (pos.z)
-    
-    let newPosDict = {
-        x: pos.x + this.data.speed * Math.sin((rotationCam.y - 180) * (Math.PI / 180)),
-        y: pos.y + this.data.speed * Math.tan((rotationCam.x - 180) * (Math.PI / 180)),
-        z: pos.z + this.data.speed * Math.cos((rotationCam.y - 180) * (Math.PI / 180)),
-    }
     this.el.setAttribute('position', {
-      x: currentPos.x + dx * Math.sin(((rotationCam.y + rotationEl.y)  - 180) * (Math.PI / 180)),
-      y: currentPos.y + dy,
-      z: currentPos.z + dz * Math.cos(((rotationCam.y + rotationEl.y)  - 180) * (Math.PI / 180)),
+      x: currentPos.x + this.dx * Math.sin(((rotationCam.y - rotationEl.y)  - 180) * (Math.PI / 180)),
+      y: currentPos.y + this.dy,
+      z: currentPos.z + this.dz * Math.cos(((rotationCam.y - rotationEl.y)  - 180) * (Math.PI / 180)),
     })
     
   }
