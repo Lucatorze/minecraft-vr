@@ -6,23 +6,16 @@ AFRAME.registerComponent('menu', {
   },
   
   init: function () {
-    var sceneEl = document.querySelector('a-scene');
-    var camera = sceneEl.querySelector('a-camera');
-    var currentPos = camera.getAttribute('position');
-    var pos = this.el.getAttribute('position')
-    
-    this.dz = (currentPos.z  - pos.z)
+    this.dz = (document.querySelector('a-scene').querySelector('a-camera').getAttribute('position').z  - this.el.getAttribute('position').z)
   },
 
   tick: function () {
     var sceneEl = document.querySelector('a-scene');
     var camera = sceneEl.querySelector('a-camera');
-    var cameraDirection = sceneEl.querySelector('a-camera').object3D.getWorldDirection()
     var currentPos = camera.getAttribute('position');
     var rotationCam = camera.getAttribute('rotation');
     var rotationEl = this.el.getAttribute('rotation');
     var pos = this.el.getAttribute('position')
-    var menu = this.el.object3D;
     
     this.el.setAttribute('position', {
       x: currentPos.x + this.dz * Math.sin(((rotationCam.y )  - 180) * (Math.PI / 180)),
@@ -106,7 +99,7 @@ AFRAME.registerComponent('edit', {
     var el = this.el;  // <a-box>
     var sceneEl = document.querySelector('a-scene');
     var cursor = sceneEl.querySelector('a-cursor');
-    var camera = sceneEl.querySelector('[camera]');
+    var camera = sceneEl.querySelector('a-camera');
     var menu = sceneEl.querySelector('#menu');
     var timer;
     
