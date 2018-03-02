@@ -7,11 +7,10 @@ AFRAME.registerComponent('edit', {
     var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('[camera]');
     var menu = sceneEl.querySelector('#menu');
-    var walk = sceneEl.querySelector('#walk');
-    var edit = sceneEl.querySelector('#edit');
-    var fly = sceneEl.querySelector('#fly');
+    var timer;
     
     el.addEventListener('mouseenter', function () {
+      timer = setTimeout(function(){
             console.log('Edit mod')
             cursor.setAttribute('intersection-spawn', {
               event: 'click',
@@ -20,9 +19,10 @@ AFRAME.registerComponent('edit', {
           camera.removeAttribute('move_camera_forward');
           camera.removeAttribute('fly_forward');
           menu.removeAttribute('inventory');
-          walk.removeAttribute('inventory');
-          edit.removeAttribute('inventory');
-          fly.removeAttribute('inventory');
+      }, 500);
     })
+    el.addEventListener('mouseleave', function () {
+        clearTimeout(timer);
+    });
   }
 });

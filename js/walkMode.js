@@ -7,9 +7,6 @@ AFRAME.registerComponent('walk', {
     var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('a-camera');
     var menu = sceneEl.querySelector('#menu');
-    var walk = sceneEl.querySelector('#walk');
-    var edit = sceneEl.querySelector('#edit');
-    var fly = sceneEl.querySelector('#fly');
     var timer;
     
     el.addEventListener('mouseenter', function () {
@@ -20,9 +17,7 @@ AFRAME.registerComponent('walk', {
         camera.removeAttribute('fly_forward');
         camera.setAttribute('move_camera_forward','');
         menu.setAttribute('inventory','');
-        edit.setAttribute('inventory','');
-        fly.setAttribute('inventory','');
-        }, 1000);
+        }, 500);
     })
     el.addEventListener('mouseleave', function () {
         clearTimeout(timer);
