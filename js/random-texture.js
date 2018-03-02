@@ -12,11 +12,10 @@ AFRAME.registerComponent('random-texture', {
     });
   },
   remove:function(){
-    console.log('remove random')
     const data = this.data;
     const el = this.el;
     
-    el.removeEventListener(data.event, this.callback);
+    el.removeEventListener('mouseenter', this.callback);
   }
 });
 

@@ -114,7 +114,7 @@ AFRAME.registerComponent('edit', {
     
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
-        var blocs = sceneEl.querySelectorAll('.blocs');
+          var blocs = sceneEl.querySelectorAll('.blocs');
           console.log('Edit mod')
           cursor.removeAttribute('intersection-spawn');
           camera.removeAttribute('move_camera_forward');
@@ -143,11 +143,10 @@ AFRAME.registerComponent('change', {
     var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('a-camera');
     var menu = sceneEl.querySelector('#menu');
-    var timer;
-    var blocs = sceneEl.querySelectorAll('a-mixin');
-    
+    var timer;    
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
+            var blocs = sceneEl.querySelectorAll('.blocs');
             console.log('Change Texture')
             cursor.removeAttribute('intersection-spawn');
             for(var i=0; i<blocs.length;i++){
@@ -157,9 +156,6 @@ AFRAME.registerComponent('change', {
     })
     el.addEventListener('mouseleave', function () {
         clearTimeout(timer);
-        for(var i=0; i<blocs.length;i++){
-          blocs[i].removeAttribute('random-texture');
-        }
     });
   }
 });
@@ -176,10 +172,10 @@ AFRAME.registerComponent('add', {
     var camera = sceneEl.querySelector('a-camera');
     var menu = sceneEl.querySelector('#menu');
     var timer;
-    var blocs = sceneEl.querySelectorAll('a-mixin');
     
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
+            var blocs = sceneEl.querySelectorAll('.blocs');
             console.log('Add Block')
             cursor.setAttribute('intersection-spawn', {
               event: 'click',
