@@ -9,7 +9,8 @@
     <script src="movement.js"></script>
     <script src="snap.js"></script>
     <script src="intersection-spawn.js"></script>
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.1/dist/aframe-physics-system.min.js"></script>
+    
+    
   </head>
 
 
@@ -58,9 +59,9 @@
       <a-text id="fly" position="0 -1 4" geometry="primitive:plane" value="fly Mod" text="color:#ff0000;height:50;width:50" rotation="70 0 0" fly></a-text>
       <a-text id="edit" position="0 -1 1" geometry="primitive:plane" value="Edit Mod" text="color:#ff0000;height:50;width:50" rotation="70 0 0" edit></a-text>
       
-      <a-text id="change" position="-10 -1 -2" geometry="primitive:plane" value="Change Texture" text="color:#ff0000;height:50;width:50" rotation="70 0 0" edit></a-text>
-      <a-text id="add" position="-10 -1 -5" geometry="primitive:plane" value="Add Block" text="color:#ff0000;height:50;width:50" rotation="70 0 0" edit></a-text>
-      <a-text id="remove" position="-10 -1 -8" geometry="primitive:plane" value="Remove BLock" text="color:#ff0000;height:50;width:50" rotation="70 0 0" edit></a-text>
+      <a-text id="change" position="-10 -1 -2" geometry="primitive:plane" value="Change Texture" text="color:#ff0000;height:50;width:50" rotation="70 0 0" change></a-text>
+      <a-text id="add" position="-10 -1 -5" geometry="primitive:plane" value="Add Block" text="color:#ff0000;height:50;width:50" rotation="70 0 0" add></a-text>
+      <a-text id="remove" position="-10 -1 -8" geometry="primitive:plane" value="Remove BLock" text="color:#ff0000;height:50;width:50" rotation="70 0 0" remove></a-text>
 
     </a-box>
     
@@ -105,7 +106,7 @@
     <a-camera camera
           sound="src: https://cdn.glitch.com/86898e5d-de85-4e17-a514-dfb5bd641dfd%2FVolume%20Alpha%20-%2008%20-%20Minecraft.mp3?1519742809914; autoplay: false"
               wasd-controls="enabled:false">
-      <a-cursor intersection-spawn="event: click; mixin: voxel"></a-cursor>
+      <a-cursor ></a-cursor>
     </a-camera>
   </a-scene>
 </body>
