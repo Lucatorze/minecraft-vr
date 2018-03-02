@@ -10,10 +10,8 @@ AFRAME.registerComponent('edit', {
     var walk = sceneEl.querySelector('#walk');
     var edit = sceneEl.querySelector('#edit');
     var fly = sceneEl.querySelector('#fly');
-    var timer;
     
     el.addEventListener('mouseenter', function () {
-      timer = setTimeout(function(){
             console.log('Edit mod')
             cursor.setAttribute('intersection-spawn', {
               event: 'click',
