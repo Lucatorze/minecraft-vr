@@ -54,7 +54,9 @@ AFRAME.registerComponent('walk', {
         camera.removeAttribute('fly_forward');
         camera.setAttribute('move_camera_forward','');
         menu.setAttribute('menu','');
-        blocs.removeAttribute('random-texture');
+        for(var i=0; i<blocs.length;i++){
+            blocs[i].removeAttribute('random-texture');
+          }
         }, 500);
     })
     el.addEventListener('mouseleave', function () {
@@ -85,7 +87,9 @@ AFRAME.registerComponent('fly', {
           camera.removeAttribute('move_camera_forward');
           camera.setAttribute('fly_forward','');
           menu.setAttribute('menu','');
-          blocs.removeAttribute('random-texture');
+          for(var i=0; i<blocs.length;i++){
+            blocs[i].removeAttribute('random-texture');
+          }
         }, 500);
     })
     el.addEventListener('mouseleave', function () {
@@ -116,7 +120,9 @@ AFRAME.registerComponent('edit', {
           camera.removeAttribute('move_camera_forward');
           camera.removeAttribute('fly_forward');
           menu.removeAttribute('menu');
-          blocs.removeAttribute('random-texture');
+          for(var i=0; i<blocs.length;i++){
+            blocs[i].removeAttribute('random-texture');
+          }
       }, 500);
     })
     el.addEventListener('mouseleave', function () {
@@ -142,13 +148,17 @@ AFRAME.registerComponent('change', {
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
             console.log('Change Texture')
-            cursor.setAttribute('random-texture', '');
             cursor.removeAttribute('intersection-spawn');
-            blocs.setAttribute('random-texture', '');
+            for(var i=0; i<blocs.length;i++){
+              blocs[i].setAttribute('random-texture', '');
+            }
       }, 1000);
     })
     el.addEventListener('mouseleave', function () {
         clearTimeout(timer);
+        for(var i=0; i<blocs.length;i++){
+          blocs[i].removeAttribute('random-texture');
+        }
     });
   }
 });
@@ -176,7 +186,7 @@ AFRAME.registerComponent('add', {
             });
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
-
+          }
       }, 1000);
     })
     el.addEventListener('mouseleave', function () {

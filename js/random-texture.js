@@ -3,9 +3,9 @@ AFRAME.registerComponent('random-texture', {
 
   init: function () {
     var el = this.el;  // <a-box>
+    var timer;
     this.callback = changeTexture.bind(this, timer, el)
     el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
-    var timer;
     el.addEventListener('mouseenter', this.callback)
     
     el.addEventListener('mouseleave', function () {
@@ -21,6 +21,7 @@ AFRAME.registerComponent('random-texture', {
 });
 
 function changeTexture(timer,el){
+  console.log('okok')
   timer = setTimeout(function(){
       el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
   }, 1000);
