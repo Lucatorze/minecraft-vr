@@ -10,8 +10,10 @@ AFRAME.registerComponent('fly', {
     var walk = sceneEl.querySelector('#walk');
     var edit = sceneEl.querySelector('#edit');
     var fly = sceneEl.querySelector('#fly');
+    var timer;
     
     el.addEventListener('mouseenter', function () {
+      timer = setTimeout(function(){
           console.log('Fly mod')
           camera.removeAttribute('intersection-spawn');
           camera.removeAttribute('wasd-controls');
@@ -21,6 +23,10 @@ AFRAME.registerComponent('fly', {
           walk.setAttribute('inventory','');
           edit.setAttribute('inventory','');
           fly.setAttribute('inventory','');
+        }, 1000);
     })
+    el.addEventListener('mouseleave', function () {
+        clearTimeout(timer);
+    });
   }
 });

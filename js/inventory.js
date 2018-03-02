@@ -10,10 +10,6 @@ AFRAME.registerComponent('inventory', {
     var pos = this.el.getAttribute('position')
     
     this.dz = (currentPos.z  - pos.z)
-    
-    console.log(this.el)
-    console.log(this.dx + ' ' + this.dy + ' ' + this.dz)
-
   },
 
   tick: function () {
