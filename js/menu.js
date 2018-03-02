@@ -43,6 +43,7 @@ AFRAME.registerComponent('walk', {
     var cursor = sceneEl.querySelector('a-cursor');
     var camera = sceneEl.querySelector('a-camera');
     var menu = sceneEl.querySelector('#menu');
+    var blocs
     var timer;
     
     el.addEventListener('mouseenter', function () {
