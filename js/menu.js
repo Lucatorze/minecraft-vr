@@ -56,6 +56,7 @@ AFRAME.registerComponent('walk', {
         menu.setAttribute('menu','');
         for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
+            blocs[i].removeAttribute('remove', '');
           }
         }, 500);
     })
@@ -89,6 +90,7 @@ AFRAME.registerComponent('fly', {
           menu.setAttribute('menu','');
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
+            blocs[i].removeAttribute('remove', '');
           }
         }, 500);
     })
@@ -123,6 +125,7 @@ AFRAME.registerComponent('edit', {
           console.log(blocs)
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
+            blocs[i].removeAttribute('remove', '');
           }
       }, 500);
     })
@@ -151,6 +154,7 @@ AFRAME.registerComponent('change', {
             cursor.removeAttribute('intersection-spawn');
             for(var i=0; i<blocs.length;i++){
               blocs[i].setAttribute('random-texture', '');
+              blocs[i].removeAttribute('remove', '');
             }
       }, 1000);
     })
@@ -176,13 +180,46 @@ AFRAME.registerComponent('add', {
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
             var blocs = sceneEl.querySelectorAll('.blocs');
-            console.log('Add Block')
+            console.log('Change Texture')
             cursor.setAttribute('intersection-spawn', {
               event: 'click',
               mixin: 'voxel',
-            });
+            })
+            
+            for(var i=0; i<blocs.length;i++){
+              blocs[i].removeAttribute('random-texture');
+              blocs[i].removeAttribute('remove', '');
+            }
+      }, 1000);
+    })
+    el.addEventListener('mouseleave', function () {
+        clearTimeout(timer);
+    });
+  }
+});
+
+
+//REMOVE MOD
+
+AFRAME.registerComponent('add', {
+  dependencies: ['material'],
+
+  init: function () {
+    var el = this.el;  // <a-box>
+    var sceneEl = document.querySelector('a-scene');
+    var cursor = sceneEl.querySelector('a-cursor');
+    var camera = sceneEl.querySelector('a-camera');
+    var menu = sceneEl.querySelector('#menu');
+    var timer;
+    
+    el.addEventListener('mouseenter', function () {
+      timer = setTimeout(function(){
+            var blocs = sceneEl.querySelectorAll('.blocs');
+            console.log('Remove Block')
+            cursor.removeAttribute('intersection-spawn');
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
+            blocs[i].setAttribute('remove', '');
           }
       }, 1000);
     })

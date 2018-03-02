@@ -20,7 +20,6 @@ AFRAME.registerComponent('random-texture', {
 });
 
 function changeTexture(timer,el){
-  console.log('okok')
   timer = setTimeout(function(){
       el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
   }, 1000);
