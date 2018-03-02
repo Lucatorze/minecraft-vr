@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "aframe-crawling-cursor": "^1.0.9",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "progressbar.js": "^1.0.1"
   },
   "engines": {
     "node": "8.x"
