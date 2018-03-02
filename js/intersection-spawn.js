@@ -26,6 +26,8 @@ function blocCreater (data,el,evt){
 
   // Snap intersection point to grid and offset from center.
   spawnEl.setAttribute('position', evt.detail.intersection.point);
+  
+  spawnEl.setAttribute('class', 'blocs');
 
   // Set components and properties.
   Object.keys(data).forEach(name => {

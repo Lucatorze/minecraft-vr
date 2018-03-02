@@ -110,16 +110,17 @@ AFRAME.registerComponent('edit', {
     var camera = sceneEl.querySelector('a-camera');
     var menu = sceneEl.querySelector('#menu');
     var timer;
-    var blocs = sceneEl.querySelectorAll('a-mixin');
-    console.log(blocs)
+    
     
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
+        var blocs = sceneEl.querySelectorAll('.blocs');
           console.log('Edit mod')
           cursor.removeAttribute('intersection-spawn');
           camera.removeAttribute('move_camera_forward');
           camera.removeAttribute('fly_forward');
           menu.removeAttribute('menu');
+          console.log(blocs)
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
           }

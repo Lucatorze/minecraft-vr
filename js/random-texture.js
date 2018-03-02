@@ -5,7 +5,6 @@ AFRAME.registerComponent('random-texture', {
     var el = this.el;  // <a-box>
     var timer;
     this.callback = changeTexture.bind(this, timer, el)
-    el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
     el.addEventListener('mouseenter', this.callback)
     
     el.addEventListener('mouseleave', function () {
@@ -13,6 +12,7 @@ AFRAME.registerComponent('random-texture', {
     });
   },
   remove:function(){
+    console.log('remove random')
     const data = this.data;
     const el = this.el;
     
