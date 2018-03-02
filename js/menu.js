@@ -56,7 +56,7 @@ AFRAME.registerComponent('walk', {
         menu.setAttribute('menu','');
         for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
-            blocs[i].removeAttribute('remove', '');
+            blocs[i].removeAttribute('removeEl', '');
           }
         }, 500);
     })
@@ -90,7 +90,7 @@ AFRAME.registerComponent('fly', {
           menu.setAttribute('menu','');
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
-            blocs[i].removeAttribute('remove', '');
+            blocs[i].removeAttribute('removeEl', '');
           }
         }, 500);
     })
@@ -125,7 +125,7 @@ AFRAME.registerComponent('edit', {
           console.log(blocs)
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
-            blocs[i].removeAttribute('remove', '');
+            blocs[i].removeAttribute('removeEl', '');
           }
       }, 500);
     })
@@ -154,7 +154,7 @@ AFRAME.registerComponent('change', {
             cursor.removeAttribute('intersection-spawn');
             for(var i=0; i<blocs.length;i++){
               blocs[i].setAttribute('random-texture', '');
-              blocs[i].removeAttribute('remove', '');
+              blocs[i].removeAttribute('removeEl', '');
             }
       }, 1000);
     })
@@ -180,7 +180,7 @@ AFRAME.registerComponent('add', {
     el.addEventListener('mouseenter', function () {
       timer = setTimeout(function(){
             var blocs = sceneEl.querySelectorAll('.blocs');
-            console.log('Change Texture')
+            console.log('ADD Texture')
             cursor.setAttribute('intersection-spawn', {
               event: 'click',
               mixin: 'voxel',
@@ -188,7 +188,7 @@ AFRAME.registerComponent('add', {
             
             for(var i=0; i<blocs.length;i++){
               blocs[i].removeAttribute('random-texture');
-              blocs[i].removeAttribute('remove', '');
+              blocs[i].removeAttribute('removeEl', '');
             }
       }, 1000);
     })
@@ -201,7 +201,7 @@ AFRAME.registerComponent('add', {
 
 //REMOVE MOD
 
-AFRAME.registerComponent('add', {
+AFRAME.registerComponent('remove', {
   dependencies: ['material'],
 
   init: function () {
@@ -219,7 +219,7 @@ AFRAME.registerComponent('add', {
             cursor.removeAttribute('intersection-spawn');
           for(var i=0; i<blocs.length;i++){
             blocs[i].removeAttribute('random-texture');
-            blocs[i].setAttribute('remove', '');
+            blocs[i].setAttribute('removeEl', '');
           }
       }, 1000);
     })

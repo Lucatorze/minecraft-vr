@@ -3,26 +3,19 @@ AFRAME.registerComponent('random-texture', {
 
   init: function () {
     var el = this.el;  // <a-box>
-    var timer;
-    this.callback = changeTexture.bind(this, timer, el)
-    el.addEventListener('mouseenter', this.callback)
-    
-    el.addEventListener('mouseleave', function () {
-        clearTimeout(timer);
-    });
+    this.callback = changeTexture.bind(this, el)
+    el.addEventListener('click', this.callback)
   },
   remove:function(){
     const data = this.data;
     const el = this.el;
     
-    el.removeEventListener('mouseenter', this.callback);
+    el.removeEventListener('click', this.callback);
   }
 });
 
-function changeTexture(timer,el){
-  timer = setTimeout(function(){
-      el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
-  }, 1000);
+function changeTexture(el){
+  el.setAttribute('material', 'src', 'url('+getRandomTexture()+')');
 }
 
 function getRandomTexture() {

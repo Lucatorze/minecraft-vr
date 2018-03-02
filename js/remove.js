@@ -1,26 +1,19 @@
-AFRAME.registerComponent('remove', {
+AFRAME.registerComponent('removeEl', {
   dependencies: ['material'],
 
   init: function () {
     var el = this.el;  // <a-box>
-    var timer;
-    this.callback = remove.bind(this, timer, el)
-    el.addEventListener('mouseenter', this.callback)
-    
-    el.addEventListener('mouseleave', function () {
-        clearTimeout(timer);
-    });
+    this.callback = remove.bind(this, el)
+    el.addEventListener('click', this.callback)
   },
   remove:function(){
     const data = this.data;
     const el = this.el;
     
-    el.removeEventListener('mouseenter', this.callback);
+    el.removeEventListener('click', this.callback);
   }
 });
 
-function remove(timer,el){
-  timer = setTimeout(function(){
-      el.parentNode.removeChild(el);
-  }, 1000);
+function remove(el){
+  el.parentNode.removeChild(el);
 }
